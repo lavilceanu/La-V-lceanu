@@ -134,34 +134,94 @@ footer p{color:#c6bdb7;font-size:13px}
 </aside></div><div class="toast" id="toast"></div>
 <script>
 const products=[
-{name:"Sandwich Mușchi File & Cașcaval",weight:"330 g",price:14.90,cat:"Sandvișuri",emoji:"🥪"},
-{name:"Sandwich Șnițel Pui",weight:"400 g",price:16.90,cat:"Sandvișuri",emoji:"🥪"},
-{name:"Crispy 3 Buc",weight:"360 g",price:20.90,cat:"Crispy",emoji:"🍗"},
-{name:"Shaorma Pui Mică",weight:"600 g",price:24.90,cat:"Shaorma",emoji:"🌯"},
-{name:"Shaorma Crispy",weight:"600 g",price:26.90,cat:"Shaorma",emoji:"🌯"},
-{name:"Kebab Pită Pui",weight:"450 g",price:26.90,cat:"Kebab",emoji:"🥙"},
-{name:"Kebab Farfurie Pui",weight:"800 g",price:38.90,cat:"Kebab",emoji:"🍽️"},
-{name:"Crispy în Pită",weight:"500 g",price:25.90,cat:"Crispy",emoji:"🥙"},
-{name:"4 Mici + Cartofi + Muștar",weight:"450 g",price:24.90,cat:"Grill",emoji:"🔥"},
-{name:"Cârnăciori + Cartofi + Sos",weight:"350 g",price:23.90,cat:"Grill",emoji:"🌭"},
-{name:"Ceafă porc",weight:"preț/kg",price:25.90,cat:"Grill",emoji:"🥩",unit:"/ kg"},
-{name:"Mix Grill",weight:"—",price:59.90,cat:"Platouri",emoji:"🍖"},
-{name:"Platou Familia „La Vîlceanu”",weight:"—",price:249.90,cat:"Platouri",emoji:"🍱"},
-{name:"Cartofii Boierului",weight:"430 g",price:26.90,cat:"Cartofi la cuptor",emoji:"🥔"},
-{name:"Cartofii Crispy Crunch",weight:"440 g",price:24.90,cat:"Cartofi la cuptor",emoji:"🍟"},
-{name:"Cartofii Grill",weight:"430 g",price:23.90,cat:"Cartofi la cuptor",emoji:"🥔"},
-{name:"Cartofii Afumați",weight:"430 g",price:22.90,cat:"Cartofi la cuptor",emoji:"🥓"}
+// SHAORMA & KEBAB PUI
+{name:"Shaorma pui mică",weight:"580 g",price:25.90,cat:"Shaorma & Kebab pui",emoji:"🌯",desc:"Lipie 75 g • Carne 190 g • Legume 20 g • Cartofi 150 g • Salată 70 g • Sosuri 75 g"},
+{name:"Shaorma pui mare",weight:"780 g",price:32.90,cat:"Shaorma & Kebab pui",emoji:"🌯",desc:"Lipie 110 g • Carne 260 g • Legume 40 g • Cartofi 180 g • Salată 90 g • Sosuri 100 g"},
+{name:"Shaorma crispy pui",weight:"550 g",price:27.90,cat:"Shaorma & Kebab pui",emoji:"🌯",desc:"Lipie 75 g • Carne 180 g • Legume 30 g • Cartofi 140 g • Salată 60 g • Sosuri 65 g"},
+{name:"Kebab în pită pui",weight:"610 g",price:29.90,cat:"Shaorma & Kebab pui",emoji:"🥙",desc:"Pită 120 g • Carne 220 g • Legume 40 g • Cartofi 130 g • Salată 50 g • Sosuri 50 g"},
+{name:"Kebab la farfurie pui",weight:"805 g",price:38.90,cat:"Shaorma & Kebab pui",emoji:"🍽️",desc:"Carne 350 g • Salată 120 g • Lipie 75 g • Cartofi 200 g • Sosuri 60 g"},
+{name:"Crispy în pită pui",weight:"520 g",price:28.90,cat:"Shaorma & Kebab pui",emoji:"🥙",desc:"Pită 120 g • Crispy 160 g • Legume 30 g • Cartofi 120 g • Salată 40 g • Sosuri 50 g"},
+// SHAORMA & KEBAB VITA
+{name:"Shaorma vită",weight:"500 g",price:34.90,cat:"Shaorma & Kebab vită",emoji:"🌯",desc:"Lipie 75 g • Carne vită 150 g • Legume 30 g • Cartofi 100 g • Salată 60 g • Sosuri 85 g"},
+{name:"Kebab în pită vită",weight:"600 g",price:36.90,cat:"Shaorma & Kebab vită",emoji:"🥙",desc:"Pită 120 g • Carne vită 200 g • Legume 40 g • Cartofi 130 g • Salată 50 g • Sosuri 60 g"},
+{name:"Kebab la farfurie vită",weight:"800 g",price:44.90,cat:"Shaorma & Kebab vită",emoji:"🍽️",desc:"Carne vită 300 g • Salată 120 g • Lipie 75 g • Cartofi 200 g • Sosuri 60 g"},
+// GRILL
+{name:"Meniu mici",weight:"510 g",price:32.90,cat:"Meniuri grill",emoji:"🔥",desc:"4 mici 280 g • Sos 30 g • Cartofi 150 g • Pită 50 g"},
+{name:"Meniu cârnăciori",weight:"430 g",price:33.90,cat:"Meniuri grill",emoji:"🌭",desc:"4 cârnăciori 200 g • Sos 30 g • Cartofi 150 g • Pită 50 g"},
+{name:"Meniu ceafă",weight:"430 g",price:35.90,cat:"Meniuri grill",emoji:"🥩",desc:"Ceafă porc 200 g • Sos 30 g • Cartofi 150 g • Pită 50 g"},
+// SANDWICH & SPECIAL
+{name:"Sandwich mușchi și cașcaval",weight:"345 g",price:14.90,cat:"Sandwich-uri & special",emoji:"🥪",desc:"Pită 100 g • Mușchi file 40 g • Cașcaval 25 g • Cartofi 80 g • Legume 30 g • Salată 40 g • Sosuri 30 g"},
+{name:"Sandwich șnițel de pui",weight:"340 g",price:16.90,cat:"Sandwich-uri & special",emoji:"🥪",desc:"Pită 100 g • Șnițel 80 g • Cartofi 80 g • Legume 30 g • Salată 40 g • Sosuri 30 g"},
+{name:"Sandwich crispy pui JR",weight:"320 g",price:18.90,cat:"Sandwich-uri & special",emoji:"🥪",desc:"Pită 100 g • Crispy 50 g • Cartofi 70 g • Legume 30 g • Salată 40 g • Sosuri 30 g"},
+{name:"Boierescu lu’ Vîlceanu",weight:"530 g",price:29.90,cat:"Sandwich-uri & special",emoji:"🥙",desc:"Pită 120 g • Cârnat din topor 150 g • Cartofi 100 g • Legume 40 g • Salată 60 g • Sosuri 60 g"},
+// CRISPY
+{name:"Crispy pui 3 bucăți + 1 sos",weight:"340 g",price:22.90,cat:"Crispy pui",emoji:"🍗",desc:"Crispy 160 g • Cartofi 150 g • Sos 30 g"},
+{name:"Crispy pui 6 bucăți + 2 sosuri",weight:"530 g",price:33.90,cat:"Crispy pui",emoji:"🍗",desc:"Crispy 320 g • Cartofi 150 g • Sos 60 g"},
+{name:"Crispy pui 10 bucăți + 3 sosuri",weight:"840 g",price:59.90,cat:"Crispy pui",emoji:"🍗",desc:"Crispy 500 g • Cartofi 250 g • Sos 90 g"},
+{name:"Crispy pui 15 bucăți + 4 sosuri",weight:"1,2 kg",price:79.90,cat:"Crispy pui",emoji:"🍗",desc:"Crispy 750 g • Cartofi 350 g • Sosuri 120 g"},
+{name:"Crispy pui 20 bucăți + 5 sosuri",weight:"1,6 kg",price:109.90,cat:"Crispy pui",emoji:"🍗",desc:"Crispy 1 kg • Cartofi 500 g • Sosuri 150 g"},
+// CARTOFI SPECIALI
+{name:"Cartofi Boierului",weight:"430 g",price:26.90,cat:"Cartofi speciali",emoji:"🥔",desc:"Cartofi, cârnat boieresc, sos de usturoi, mozzarella"},
+{name:"Cartofi Crispy Crunch",weight:"440 g",price:24.90,cat:"Cartofi speciali",emoji:"🍟",desc:"Cartofi, crispy de pui, sos de usturoi, mozzarella"},
+{name:"Cartofi Grill",weight:"430 g",price:23.90,cat:"Cartofi speciali",emoji:"🥔",desc:"Cartofi, cârnăciori la grătar, sos de usturoi, mozzarella"},
+{name:"Cartofi Afumați",weight:"430 g",price:22.90,cat:"Cartofi speciali",emoji:"🥓",desc:"Cartofi, mușchi afumat, sos de usturoi, mozzarella"},
+// PLATOURI
+{name:"Platou „La Vîlceanu”",weight:"2 kg",price:169.90,cat:"Platouri",emoji:"🍱",desc:"Crispy 6 buc. 200 g • Mici 4 buc. 270 g • Ceafă 2 buc. 300 g • Cârnățiori 6 buc. 300 g • Cartofi 550 g • Salată 150 g • Sosuri 3 buc. 90 g • Pită 3 buc. 150 g"},
+{name:"Mix Grill",weight:"1 kg",price:59.90,cat:"Platouri",emoji:"🍖",desc:"Mici 2 buc. 140 g • Ceafă 2 buc. 200 g • Cârnățiori 4 buc. 200 g • Cartofi 250 g • Salată 150 g • Sosuri 2 buc. 60 g • Pită 2 buc."},
+// SOSURI
+{name:"Sos de usturoi",weight:"30 g",price:2.90,cat:"Sosuri",emoji:"🥣"},
+{name:"Maioneză",weight:"30 g",price:2.90,cat:"Sosuri",emoji:"🥣"},
+{name:"Maioneză picantă",weight:"30 g",price:2.90,cat:"Sosuri",emoji:"🌶️"},
+{name:"Ketchup",weight:"30 g",price:2.90,cat:"Sosuri",emoji:"🥫"},
+{name:"Muștar",weight:"30 g",price:2.90,cat:"Sosuri",emoji:"🥣"},
+{name:"Sos Sriracha",weight:"30 g",price:2.90,cat:"Sosuri",emoji:"🌶️"},
+// EXTRA
+{name:"Carne",weight:"90 g",price:6.90,cat:"Extra",emoji:"➕"},
+{name:"Carne vită",weight:"90 g",price:7.90,cat:"Extra",emoji:"➕"},
+{name:"Mici",weight:"70 g",price:4.50,cat:"Extra",emoji:"➕"},
+{name:"Crispy",weight:"50 g",price:5.90,cat:"Extra",emoji:"➕"},
+{name:"Cârnăței",weight:"60 g",price:4.90,cat:"Extra",emoji:"➕"},
+{name:"Ceafă",weight:"100 g",price:12.90,cat:"Extra",emoji:"➕"},
+// PITA & LIPIE
+{name:"Pită",weight:"50 g",price:1.90,cat:"Pită & lipie",emoji:"🥖"},
+{name:"Pită",weight:"110 g",price:2.90,cat:"Pită & lipie",emoji:"🥖",variant:"110 g"},
+{name:"Lipie",weight:"75 g",price:1.90,cat:"Pită & lipie",emoji:"🫓"},
+{name:"Lipie",weight:"110 g",price:2.90,cat:"Pită & lipie",emoji:"🫓",variant:"110 g"},
+// GARNITURI
+{name:"Cartofi prăjiți",weight:"150 g",price:7.90,cat:"Garnituri",emoji:"🍟"},
+{name:"Cartofi prăjiți",weight:"250 g",price:11.90,cat:"Garnituri",emoji:"🍟",variant:"250 g"},
+// SALATE
+{name:"Salată de varză",weight:"100 g",price:6.90,cat:"Salate",emoji:"🥗"},
+{name:"Roșii și castraveți",weight:"100 g",price:6.90,cat:"Salate",emoji:"🥗"},
+{name:"Castraveți murați",weight:"100 g",price:6.90,cat:"Salate",emoji:"🥒"},
+// DE POST
+{name:"Shaorma de post",weight:"450 g",price:19.90,cat:"De post",emoji:"🌯",desc:"Cartofi prăjiți, legume și sosuri de post"},
+// RACORITOARE
+{name:"Apă plată",weight:"0,5 L",price:5.90,cat:"Răcoritoare",emoji:"💧",desc:"Preț + 0,50 lei SGR"},
+{name:"Apă minerală",weight:"0,5 L",price:5.90,cat:"Răcoritoare",emoji:"💧",desc:"Preț + 0,50 lei SGR"},
+{name:"Pepsi",weight:"0,33 L",price:7.90,cat:"Răcoritoare",emoji:"🥤",desc:"Preț + 0,50 lei SGR"},
+{name:"Pepsi Twist",weight:"0,33 L",price:7.90,cat:"Răcoritoare",emoji:"🥤",desc:"Preț + 0,50 lei SGR"},
+{name:"Pepsi Max",weight:"0,33 L",price:7.90,cat:"Răcoritoare",emoji:"🥤",desc:"Preț + 0,50 lei SGR"},
+{name:"Mirinda",weight:"0,33 L",price:7.90,cat:"Răcoritoare",emoji:"🥤",desc:"Preț + 0,50 lei SGR"},
+{name:"Mountain Dew",weight:"0,25 L",price:5.90,cat:"Răcoritoare",emoji:"🥤",desc:"Preț + 0,50 lei SGR"},
+{name:"Aqua Flavours Zmeură",weight:"—",price:8.90,cat:"Răcoritoare",emoji:"🧃",desc:"Preț + 0,50 lei SGR"},
+{name:"Aqua Flavours Măr",weight:"—",price:8.90,cat:"Răcoritoare",emoji:"🧃",desc:"Preț + 0,50 lei SGR"},
+{name:"Aqua Flavours Mentă",weight:"—",price:8.90,cat:"Răcoritoare",emoji:"🧃",desc:"Preț + 0,50 lei SGR"},
+{name:"Aqua Flavours Mango",weight:"—",price:8.90,cat:"Răcoritoare",emoji:"🧃",desc:"Preț + 0,50 lei SGR"},
+{name:"Prigat Lămâie",weight:"—",price:8.90,cat:"Răcoritoare",emoji:"🧃",desc:"Preț + 0,50 lei SGR"},
+{name:"Prigat Portocală",weight:"—",price:8.90,cat:"Răcoritoare",emoji:"🧃",desc:"Preț + 0,50 lei SGR"},
+{name:"Prigat Piersici",weight:"—",price:8.90,cat:"Răcoritoare",emoji:"🧃",desc:"Preț + 0,50 lei SGR"}
 ];
 let cart={},active="Toate";const cats=["Toate",...new Set(products.map(p=>p.cat))];const fmt=n=>n.toFixed(2).replace(".",",")+" lei";
 function renderFilters(){document.getElementById("filters").innerHTML=cats.map(c=>`<button class="filter ${c===active?"active":""}" onclick="setCat('${c}')">${c}</button>`).join("")}
-function renderProducts(){let shown=active==="Toate"?products:products.filter(p=>p.cat===active);document.getElementById("products").innerHTML=shown.map(p=>`<article class="product"><div class="product-art">${p.emoji}</div><div class="product-body"><h3>${p.name}</h3><p>${p.weight!=="—"?p.weight+" · ":""}Preparat proaspăt, pregătit cu grijă.</p><div class="product-foot"><span class="price">${fmt(p.price)}${p.unit||""}</span><button class="add" onclick="add('${p.name.replace(/'/g,"\\'")}')">+ Adaugă</button></div></div></article>`).join("")}
+function renderProducts(){let shown=active==="Toate"?products:products.filter(p=>p.cat===active);document.getElementById("products").innerHTML=shown.map(p=>`<article class="product"><div class="product-art">${p.emoji}</div><div class="product-body"><h3>${p.name}</h3><p>${p.weight!=="—"?p.weight+" · ":""}${p.desc||"Întotdeauna proaspăt!"}</p><div class="product-foot"><span class="price">${fmt(p.price)}${p.unit||""}</span><button class="add" onclick="add('${(p.name+(p.variant? ' '+p.variant:'' )).replace(/'/g,"\\'")}')">+ Adaugă</button></div></div></article>`).join("")}
 function setCat(c){active=c;renderFilters();renderProducts()}
 function add(n){cart[n]=(cart[n]||0)+1;updateCart();toast("Adăugat în coș")}
 function change(n,d){cart[n]=(cart[n]||0)+d;if(cart[n]<=0)delete cart[n];updateCart()}
-function updateCart(){let count=Object.values(cart).reduce((a,b)=>a+b,0);document.getElementById("cartCount").textContent=count;let es=Object.entries(cart);document.getElementById("cartItems").innerHTML=es.length?es.map(([n,q])=>{let p=products.find(x=>x.name===n);return `<div class="cart-row"><div><strong>${n}</strong><br><small>${fmt(p.price)} / buc.</small></div><div class="qty"><button onclick="change('${n.replace(/'/g,"\\'")}',-1)">−</button><b>${q}</b><button onclick="change('${n.replace(/'/g,"\\'")}',1)">+</button></div><strong>${fmt(p.price*q)}</strong></div>`}).join(""):"<p>Coșul este gol. Alege ceva bun din meniu!</p>";document.getElementById("total").textContent=fmt(es.reduce((s,[n,q])=>s+products.find(p=>p.name===n).price*q,0))}
+function updateCart(){let count=Object.values(cart).reduce((a,b)=>a+b,0);document.getElementById("cartCount").textContent=count;let es=Object.entries(cart);document.getElementById("cartItems").innerHTML=es.length?es.map(([n,q])=>{let p=products.find(x=>(x.name+(x.variant?' '+x.variant:''))===n);return `<div class="cart-row"><div><strong>${n}</strong><br><small>${fmt(p.price)} / buc.</small></div><div class="qty"><button onclick="change('${n.replace(/'/g,"\\'")}',-1)">−</button><b>${q}</b><button onclick="change('${n.replace(/'/g,"\\'")}',1)">+</button></div><strong>${fmt(p.price*q)}</strong></div>`}).join(""):"<p>Coșul este gol. Alege ceva bun din meniu!</p>";document.getElementById("total").textContent=fmt(es.reduce((s,[n,q])=>s+products.find(p=>(p.name+(p.variant?' '+p.variant:''))===n).price*q,0))}
 function openCart(){document.getElementById("modal").classList.add("open")}function closeCart(){document.getElementById("modal").classList.remove("open")}
 function toggleAddress(){document.getElementById("addressField").style.display=document.querySelector('input[name="fulfil"]:checked').value==="Livrare"?"grid":"none"}
 function toast(t){let e=document.getElementById("toast");e.textContent=t;e.style.display="block";setTimeout(()=>e.style.display="none",1500)}
-function sendOrder(){let es=Object.entries(cart);if(!es.length){toast("Coșul este gol");return}let n=document.getElementById("customer").value.trim(),ph=document.getElementById("phone").value.trim(),f=document.querySelector('input[name="fulfil"]:checked').value,pay=document.querySelector('input[name="pay"]:checked').value,a=document.getElementById("address").value.trim();if(!n||!ph){toast("Completează numele și telefonul");return}if(f==="Livrare"&&!a){toast("Completează adresa");return}let b=document.getElementById("branch").value,t=es.reduce((s,[n,q])=>s+products.find(p=>p.name===n).price*q,0),lines=es.map(([n,q])=>`• ${n} x${q} – ${fmt(products.find(p=>p.name===n).price*q)}`).join("\n"),notes=document.getElementById("notes").value.trim();let msg=`Bună ziua! Doresc să plasez o comandă La Vîlceanu.\nLocație: ${b}\nTip: ${f}${a?"\nAdresă: "+a:""}\nNume: ${n}\nTelefon: ${ph}\n\nProduse:\n${lines}\n\nTOTAL: ${fmt(t)}\nPlată: ${pay}${notes?"\nObservații: "+notes:""}${pay==="Card online"?"\nVă rog să-mi trimiteți linkul securizat de plată.":""}`;let number=b.startsWith("Nord")?"40730056600":"40730056806";window.open("https://wa.me/"+number+"?text="+encodeURIComponent(msg),"_blank")}
+function sendOrder(){let es=Object.entries(cart);if(!es.length){toast("Coșul este gol");return}let n=document.getElementById("customer").value.trim(),ph=document.getElementById("phone").value.trim(),f=document.querySelector('input[name="fulfil"]:checked').value,pay=document.querySelector('input[name="pay"]:checked').value,a=document.getElementById("address").value.trim();if(!n||!ph){toast("Completează numele și telefonul");return}if(f==="Livrare"&&!a){toast("Completează adresa");return}let b=document.getElementById("branch").value,t=es.reduce((s,[n,q])=>s+products.find(p=>(p.name+(p.variant?' '+p.variant:''))===n).price*q,0),lines=es.map(([n,q])=>`• ${n} x${q} – ${fmt(products.find(p=>(p.name+(p.variant?' '+p.variant:''))===n).price*q)}`).join("\n"),notes=document.getElementById("notes").value.trim();let msg=`Bună ziua! Doresc să plasez o comandă La Vîlceanu.\nLocație: ${b}\nTip: ${f}${a?"\nAdresă: "+a:""}\nNume: ${n}\nTelefon: ${ph}\n\nProduse:\n${lines}\n\nTOTAL: ${fmt(t)}\nPlată: ${pay}${notes?"\nObservații: "+notes:""}${pay==="Card online"?"\nVă rog să-mi trimiteți linkul securizat de plată.":""}`;let number=b.startsWith("Nord")?"40730056600":"40730056806";window.open("https://wa.me/"+number+"?text="+encodeURIComponent(msg),"_blank")}
 renderFilters();renderProducts();updateCart();document.getElementById("year").textContent=new Date().getFullYear();
 </script></body></html>
